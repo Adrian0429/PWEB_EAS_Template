@@ -1,4 +1,7 @@
 import { CollectionConfig } from 'payload/types';
+import Users from './Users';
+import create from 'payload/dist/collections/operations/create';
+import { adminAuth } from '../access/adminAuth';
 
 export const Messages: CollectionConfig = {
   slug: 'messages',
@@ -6,10 +9,10 @@ export const Messages: CollectionConfig = {
     description:'ini adalah messages channel'
   },
   access: {
-    create : () => true,
-    read: ()=> true,
-    update: ()=> true,
-    delete: ()=> true,
+    create : ({req:{user}}) => {if(user) return true},
+    read:  ({req:{user}}) => {if(user) return true},
+    update: adminAuth,
+    delete: adminAuth,
   },
   fields: [
     {
@@ -19,11 +22,10 @@ export const Messages: CollectionConfig = {
       required:true
     },
     {
-      name: 'Customer',
-      label: 'Customer',
-      type: 'relationship',
-      relationTo: 'customer',
-      hasMany:false
+      name: 'Sender_name',
+      label: 'Sender_name',
+      type:'text',
+      required : false, 
     }
   ],
 };

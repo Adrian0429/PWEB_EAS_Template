@@ -5,7 +5,6 @@ export const Channels: CollectionConfig = {
   admin: {
     description:'ini adalah channel chatting'
   },
-  auth:true,
   access: {
     create : () => true,
     read: ()=> true,
@@ -26,7 +25,6 @@ export const Channels: CollectionConfig = {
       relationTo: 'messages',
       hasMany: true,
     },
-
   ],
 };
 

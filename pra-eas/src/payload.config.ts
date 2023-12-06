@@ -9,7 +9,7 @@ import { buildConfig } from 'payload/config'
 import Users from './collections/Users'
 import Channels from './collections/Channels'
 import Messages from './collections/Messages'
-import Customer from './collections/Customer'
+import Chatter from './collections/Chatter'
 
 export default buildConfig({
   admin: {
@@ -17,7 +17,7 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, Channels, Messages, Customer],
+  collections: [Users, Channels, Messages, Chatter],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
