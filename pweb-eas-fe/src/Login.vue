@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-const apiUrl = 'http://localhost:3000/api/chatter'
+const apiUrl = 'http://localhost:3000/api/chatter/login'
 const email = ref('')
 const password = ref('')
 
@@ -20,6 +20,7 @@ try {
     if (!response.ok) {
       throw new Error('Login failed');
     }
+    
     console.log(response)
     console.log('Login successful');
     
@@ -32,6 +33,14 @@ try {
 </script>
 
 <template> 
+  <div class="container-fluid d-flex flex-row row">
+    <div class="bg-body-tertiary col d-flex align-items-center">
+      <h2 class="">Welcome To My Pra-Eas Chatting App</h2>
+    </div>
+    <div class="col mx-auto d-flex flex-column justify-content-around bg-body-secondary">
+      <div class="d-flex flex-row justify-content-around">
+      </div>
+
     <div class="container mt-5">
       <div class="col-md-6 offset-md-3">
         <h2 class="mb-4">Login</h2>
@@ -44,13 +53,16 @@ try {
             <label for="password" class="form-label">Password</label>
             <input v-model="password" type="password" class="form-control" id="password" required>
           </div>
-
-          <div class="mb-3 text-danger" v-if="errorMessage">{{ errorMessage }}</div>
-          <div class="">
-              <button type="submit" class="btn btn-primary">Login</button>
+          <div class="d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary px-4">Login</button>
+              <a href="./SignUp">Sign Up here</a>
           </div>
           
         </form>
       </div>
     </div>
+    </div>
+    
+  </div>
+  
 </template>
