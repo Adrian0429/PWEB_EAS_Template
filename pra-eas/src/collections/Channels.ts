@@ -6,10 +6,11 @@ export const Channels: CollectionConfig = {
     description:'ini adalah channel chatting'
   },
   access: {
-    create : () => true,
+    create: ()=> true,
     read: ()=> true,
     update: ()=> true,
     delete: ()=> true,
+    
   },
   fields: [
     { 
@@ -18,13 +19,13 @@ export const Channels: CollectionConfig = {
       label : "Nama Channel",
       required : true 
     },
-    {
-      name: 'Messages',
-      label: 'Messages',
-      type: 'relationship',
-      relationTo: 'messages',
-      hasMany: true,
+    { 
+      name : "Channel_Creator",
+      type : "text",
+      label : "Pemilik Channel", 
     },
+
+
   ],
 };
 

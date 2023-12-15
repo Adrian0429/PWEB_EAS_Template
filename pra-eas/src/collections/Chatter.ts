@@ -10,11 +10,9 @@ export const Chatter: CollectionConfig = {
   auth:true,
   access: {
     create : () => true,
-    read: adminAuth,
-    update: adminAuth,
-    delete: ({req: {user}})=> {
-      return user?.collection === 'users';
-    },
+    read: () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     { 

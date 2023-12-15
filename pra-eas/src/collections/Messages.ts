@@ -9,10 +9,10 @@ export const Messages: CollectionConfig = {
     description:'ini adalah messages channel'
   },
   access: {
-    create : ({req:{user}}) => {if(user) return true},
-    read:  ({req:{user}}) => {if(user) return true},
-    update: adminAuth,
-    delete: adminAuth,
+    create : () => true,
+    read:  () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {
@@ -26,7 +26,13 @@ export const Messages: CollectionConfig = {
       label: 'Sender_name',
       type:'text',
       required : false, 
-    }
+    }, 
+    {
+      name:'ChannelID',
+      label:'ChannelID',
+      type:'relationship',
+      relationTo:'channels'
+    },
   ],
 };
 
